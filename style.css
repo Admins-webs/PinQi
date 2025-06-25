@@ -1,49 +1,118 @@
-/* Impor font Inter dari Google Fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            margin: 0;
-            background-color: #f3f4f6; /* Warna latar belakang default */
-            color: #FF0000; /* Warna teks default */
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        /* Tema gelap */
-        body.dark {
-            background-color: #1a202c; /* Warna latar belakang gelap */
-            color: #e2e8f0; /* Warna teks gelap */
-        }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  color: white;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 20px;
+}
 
-        /* Custom scrollbar untuk estetika yang lebih baik */
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #888;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-        body.dark ::-webkit-scrollbar-track {
-            background: #333;
-        }
-        body.dark ::-webkit-scrollbar-thumb {
-            background: #666;
-        }
-        body.dark ::-webkit-scrollbar-thumb:hover {
-            background: #999;
-        }
+.container {
+  max-width: 600px;
+}
 
-        /* Animasi fade-in */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeIn {
-            animation: fadeIn 0.5s ease-out forwards;
-        }
+h1 {
+  font-size: 2rem;
+  margin-top: 1.5rem;
+}
+
+p {
+  font-size: 1.1rem;
+  margin: 1rem 0 2rem;
+  opacity: 0.9;
+}
+
+.countdown {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.gear-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.gear {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 3s linear infinite;
+}
+
+.gear2 {
+  width: 45px;
+  height: 45px;
+  animation-duration: 2.5s;
+  animation-direction: reverse;
+}
+
+.gear3 {
+  width: 35px;
+  height: 35px;
+  animation-duration: 2s;
+}
+
+.gear::before,
+.gear::after {
+  content: "";
+  position: absolute;
+  background: #1f1c2c;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.gear::before {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.gear::after {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .gear {
+    width: 45px;
+    height: 45px;
+  }
+
+  .gear2 {
+    width: 35px;
+    height: 35px;
+  }
+
+  .gear3 {
+    width: 25px;
+    height: 25px;
+  }
+          }
