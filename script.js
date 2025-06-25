@@ -318,6 +318,34 @@
 
         uploadForm.addEventListener('submit', handleUpload);
         modalOkButton.addEventListener('click', () => notificationModal.classList.add('hidden'));
+
+// Countdown timer: misalnya 1 jam dari sekarang
+const countdownElement = document.getElementById('timer');
+const now = new Date().getTime();
+const endTime = now + 60 * 60 * 1000; // 1 jam dari sekarang
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = endTime - now;
+
+  if (distance <= 0) {
+    countdownElement.textContent = "00:00:00";
+    return;
+  }
+
+  const hours = Math.floor(distance / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  countdownElement.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+}
+
+function pad(n) {
+  return n < 10 ? '0' + n : n;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
     </script>
 </body>
 </html>
